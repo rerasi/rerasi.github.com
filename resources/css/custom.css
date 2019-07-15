@@ -1,6 +1,6 @@
 /* ========================================= 
                 DEFAULT VALUES:
-                Font Family                     : Apercu, Apercu Bold, Apercu Light, Apercu Black
+                Font Family                     : Sansation, Sansation Bold, Sansation Light, Sansation Black
                 Primary Color                   : #FFF3CC       (Buttons)
                 Primary Text Color              : #4a4a4a       (Text Color)
 ============================================*/
@@ -20,28 +20,33 @@
 ============================================= */
 
 @font-face {
-  font-family: "Apercu";
-  src: url(../../vendors/fonts/apercu-font/Apercu.ttf);
+  font-family: "Aquatico";
+  src: url(../../vendors/fonts/Aquatico-Regular.otf);
 }
 
 @font-face {
-  font-family: "Apercu Bold";
-  src: url(../../vendors/fonts/apercu-font/Apercu-Bold.ttf);
+  font-family: "perfograma";
+  src: url(../../vendors/fonts/perfograma/Perfograma-Regular.ttf);
 }
 
 @font-face {
-  font-family: "Apercu Black";
-  src: url(../../vendors/fonts/apercu-font/apercu-black.otf);
+  font-family: "Sansation";
+  src: url(../../vendors/fonts/sansation/Sansation_Regular.ttf);
 }
 
 @font-face {
-  font-family: "Apercu Light";
-  src: url(../../vendors/fonts/apercu-font/Apercu-Light.ttf);
+  font-family: "Sansation Bold";
+  src: url(../../vendors/fonts/sansation/Sansation_Bold.ttf);
 }
 
 @font-face {
-  font-family: "Apercu Italic";
-  src: url(../../vendors/fonts/apercu-font/Apercu-LightItalic.ttf);
+  font-family: "Sansation Light";
+  src: url(../../vendors/fonts/sansation/Sansation_Light.ttf);
+}
+
+@font-face {
+  font-family: "Sansation Light";
+  src: url(../../vendors/fonts/sansation/Sansation_Italic.ttf);
 }
 
 /* ==========================================
@@ -64,13 +69,17 @@ html {
   font-size: 62.5%;
   scroll-behavior: smooth;
 
-
+  background: url(/resources/img/image/sp.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 body {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  font-family: "Apercu", sans-serif;
+  font-family: "sansation", sans-serif;
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 150%;
@@ -107,9 +116,58 @@ h1, h2, h3, h4, h5, h6, p {
 
 input[type="text"]:focus {
   color: var(--primary-text-color);
-  font-family: "Apercu";
+  font-family: "sansation";
 }
 
 /* ==========================================
                 REUSABLE CLASS
 ============================================= */
+
+.text_center{
+  text-align: center;
+  left: 0;
+  line-height: 100px;
+}
+
+.center_box{
+  text-align: center;
+  left: 0;
+  margin: auto;
+  margin-top: -100px;
+  position: absolute;
+  top: 35%;
+  width: 100%;
+}
+
+
+/* ==========================================
+                TIMER CLASS
+============================================= */
+
+#timer{
+  font-family: "perfograma";
+  text-align: center;
+  font-size: 60px;
+  color: var(--white-color);
+  margin-bottom: 15rem;
+}
+
+
+/* ==========================================
+                IMAGE CLASS
+============================================= */
+
+.welcome{
+  font-size: 10rem;
+  font-family: "Aquatico";
+  color: var(--white-color);
+
+}
+
+.wc_text{
+  font-size: 1.4rem;
+  letter-spacing: 2px;
+  font-family: "Aquatico";
+  color: var(--white-color);
+}
+
