@@ -69,11 +69,17 @@ html {
   font-size: 62.5%;
   scroll-behavior: smooth;
 
-  background: url(/resources/img/image/sp.jpg) no-repeat center center fixed; 
+  /* background: url(/resources/img/image/code4.jpeg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px); */
 }
 
 body {
@@ -84,7 +90,27 @@ body {
   font-size: 1.6rem;
   line-height: 150%;
   color: var(--primary-text-color);
+  
 }
+
+body:before{
+  content: '';
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("/resources/img/image/code7.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+  transform: scale(1.1);
+}
+
 
 ::-moz-selection {
   background: var(--primary-color);
@@ -149,7 +175,15 @@ input[type="text"]:focus {
   text-align: center;
   font-size: 60px;
   color: var(--white-color);
-  margin-bottom: 15rem;
+  margin-bottom: 8rem;
+}
+
+.social{
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition: .5s;
 }
 
 
@@ -169,5 +203,102 @@ input[type="text"]:focus {
   letter-spacing: 2px;
   font-family: "Aquatico";
   color: var(--white-color);
+}
+
+
+/* ==========================================
+                SOCIAL MEDIA CLASS
+============================================= */
+
+@import url(https://fonts.googleapis.com/css?family=Lato);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css);
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+p > a:hover{
+    color: #d9d9d9;
+    text-decoration:  underline;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin:  1% 0 1% 0;
+}
+._12 {
+    font-size: 1.2em;
+}
+._14 {
+    font-size: 1.4em;
+}
+ul {
+    padding:0;
+    list-style: none;
+}
+.footer-social-icons {
+    width: 350px;
+    display:block;
+    margin: 0 auto;
+}
+.social-icon {
+    color: #fff;
+}
+ul.social-icons {
+    margin-top: 10px;
+}
+.social-icons li {
+    vertical-align: top;
+    display: inline;
+    height: 100px;
+}
+.social-icons a {
+    color: #fff;
+    text-decoration: none;
+}
+.fa-facebook {
+    padding:10px 14px;
+    /* background-color: #322f30; */
+}
+.fa-facebook:hover {
+    background-color: #3d5b99;
+}
+.fa-twitter {
+    padding:10px 12px;
+    /* background-color: #322f30; */
+}
+.fa-twitter:hover {
+    background-color: #00aced;
+}
+.fa-instagram {
+    padding:10px 14px;
+    /* background-color: #322f30; */
+}
+.fa-instagram:hover {
+    background-color: #eb8231;
+}
+.fa-youtube {
+    padding:10px 14px;
+    /* background-color: #322f30; */
+}
+.fa-youtube:hover {
+    background-color: #e64a41;
+}
+.fa-linkedin {
+    padding:10px 14px;
+    /* background-color: #322f30; */
+}
+.fa-linkedin:hover {
+    background-color: #0073a4;
+}
+.fa-google-plus {
+    padding:10px 9px;
+    /* background-color: #322f30; */
+}
+.fa-google-plus:hover {
+    background-color: #e25714;
 }
 
