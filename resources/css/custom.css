@@ -1,7 +1,7 @@
 /* ========================================= 
                 DEFAULT VALUES:
-                Font Family                     : Sansation, Sansation Bold, Sansation Light, Sansation Black
-                Primary Color                   : #FFF3CC       (Buttons)
+                Font Family                     : Aquatico, Sansation, perfograma
+                Primary Color                   : #FFFFFF       (Text)
                 Primary Text Color              : #4a4a4a       (Text Color)
 ============================================*/
 
@@ -68,18 +68,6 @@ html {
     */
   font-size: 62.5%;
   scroll-behavior: smooth;
-
-  /* background: url(/resources/img/image/code4.jpeg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-
-  filter: blur(5px);
-  -webkit-filter: blur(5px);
-  -moz-filter: blur(5px);
-  -o-filter: blur(5px);
-  -ms-filter: blur(5px); */
 }
 
 body {
@@ -98,7 +86,7 @@ body:before{
   position: fixed;
   width: 100vw;
   height: 100vh;
-  background-image: url("/resources/img/image/code7.jpg");
+  background-image: url("/resources/img/image/bg_img.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -165,25 +153,29 @@ input[type="text"]:focus {
   width: 100%;
 }
 
-
-/* ==========================================
-                TIMER CLASS
-============================================= */
-
-#timer{
-  font-family: "perfograma";
-  text-align: center;
-  font-size: 60px;
-  color: var(--white-color);
-  margin-bottom: 8rem;
-}
-
 .social{
   -o-transition:.5s;
   -ms-transition:.5s;
   -moz-transition:.5s;
   -webkit-transition:.5s;
   transition: .5s;
+}
+
+
+/* ==========================================
+                TIMER CLASS
+============================================= */
+
+#note{
+	color: #ffffff;
+	font-size: 1.4rem;
+	letter-spacing: .1rem;
+	margin: 0 auto;
+	padding: 4px;
+	text-align: center;
+	text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);
+	width: 500px;
+	padding-bottom: 4rem; 
 }
 
 
