@@ -1,173 +1,171 @@
-// Set the date we're counting down to
-var countDownDate = new Date("Oct 1, 2019 23:59:59").getTime();
+$(function(){
+	
+	var note = $('#note'),
+		ts = new Date(2019, 0, 1),
+		newYear = true;
+	
+	if((new Date()) > ts){
+		// The new year is here! Count towards something else.
+		// Notice the *1000 at the end - time must be in milliseconds
+		ts = (new Date()).getTime() + 77*24*60*60*1000;
+		newYear = false;
+	}
+		
+	$('#countdown').countdown({
+		timestamp	: ts,
+		callback	: function(days, hours, minutes, seconds){
+			
+			var message = "";
+			
+			message += days + " DAY" + ( days==1 ? '':'S' ) + ", ";
+			message += hours + " HOUR" + ( hours==1 ? '':'S' ) + ", ";
+			message += minutes + " MINUTE" + ( minutes==1 ? '':'S' ) + " AND ";
+			message += seconds + " SECOND" + ( seconds==1 ? '':'S' ) + " <br />";
+			
+			// if(newYear){
+			// 	message += "left until the new year!";
+			// }
+			// else {
+			// 	// message += "left to 10 days from now!";
+			// }
+			
+			note.html(message);
+		}
+	});
+	
+});
 
-// Update the count down every 1 second
-var x = setInterval(function() {
-
-  // Get today's date and time
-  var now = new Date().getTime();
-    
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
-    
-  // Time calculations for days, hours, minutes and seconds
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    
-  // Output the result in an element with id="timer"
-  document.getElementById("timer").innerHTML = days + "d " + hours + "h "
-  + minutes + "m " + seconds + "s ";
-    
-  // If the count down is over, write some text 
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("timer").innerHTML = "EXPIRED";
-  }
-}, 1000);
 
 
 
 
-// Create Countdown
-var Countdown = {
-  
-    // Backbone-like structure
-    $el: $('.countdown'),
-    
-    // Params
-    countdown_interval: null,
-    total_seconds     : 0,
-    
-    // Initialize the countdown  
-    init: function() {
-      
-      // DOM
-          this.$ = {
-          hours  : this.$el.find('.bloc-time.hours .figure'),
-          minutes: this.$el.find('.bloc-time.min .figure'),
-          seconds: this.$el.find('.bloc-time.sec .figure')
-         };
-  
-      // Init countdown values
-      this.values = {
-            hours  : this.$.hours.parent().attr('data-init-value'),
-          minutes: this.$.minutes.parent().attr('data-init-value'),
-          seconds: this.$.seconds.parent().attr('data-init-value'),
-      };
-      
-      // Initialize total seconds
-      this.total_seconds = this.values.hours * 60 * 60 + (this.values.minutes * 60) + this.values.seconds;
-  
-      // Animate countdown to the end 
-      this.count();    
-    },
-    
-    count: function() {
-      
-      var that    = this,
-          $hour_1 = this.$.hours.eq(0),
-          $hour_2 = this.$.hours.eq(1),
-          $min_1  = this.$.minutes.eq(0),
-          $min_2  = this.$.minutes.eq(1),
-          $sec_1  = this.$.seconds.eq(0),
-          $sec_2  = this.$.seconds.eq(1);
-      
-          this.countdown_interval = setInterval(function() {
-  
-          if(that.total_seconds > 0) {
-  
-              --that.values.seconds;              
-  
-              if(that.values.minutes >= 0 && that.values.seconds < 0) {
-  
-                  that.values.seconds = 59;
-                  --that.values.minutes;
-              }
-  
-              if(that.values.hours >= 0 && that.values.minutes < 0) {
-  
-                  that.values.minutes = 59;
-                  --that.values.hours;
-              }
-  
-              // Update DOM values
-              // Hours
-              that.checkHour(that.values.hours, $hour_1, $hour_2);
-  
-              // Minutes
-              that.checkHour(that.values.minutes, $min_1, $min_2);
-  
-              // Seconds
-              that.checkHour(that.values.seconds, $sec_1, $sec_2);
-  
-              --that.total_seconds;
-          }
-          else {
-              clearInterval(that.countdown_interval);
-          }
-      }, 1000);    
-    },
-    
-    animateFigure: function($el, value) {
-      
-       var that         = this,
-               $top         = $el.find('.top'),
-           $bottom      = $el.find('.bottom'),
-           $back_top    = $el.find('.top-back'),
-           $back_bottom = $el.find('.bottom-back');
-  
-      // Before we begin, change the back value
-      $back_top.find('span').html(value);
-  
-      // Also change the back bottom value
-      $back_bottom.find('span').html(value);
-  
-      // Then animate
-      TweenMax.to($top, 0.8, {
-          rotationX           : '-180deg',
-          transformPerspective: 300,
-            ease                : Quart.easeOut,
-          onComplete          : function() {
-  
-              $top.html(value);
-  
-              $bottom.html(value);
-  
-              TweenMax.set($top, { rotationX: 0 });
-          }
-      });
-  
-      TweenMax.to($back_top, 0.8, { 
-          rotationX           : 0,
-          transformPerspective: 300,
-            ease                : Quart.easeOut, 
-          clearProps          : 'all' 
-      });    
-    },
-    
-    checkHour: function(value, $el_1, $el_2) {
-      
-      var val_1       = value.toString().charAt(0),
-          val_2       = value.toString().charAt(1),
-          fig_1_value = $el_1.find('.top').html(),
-          fig_2_value = $el_2.find('.top').html();
-  
-      if(value >= 10) {
-  
-          // Animate only if the figure has changed
-          if(fig_1_value !== val_1) this.animateFigure($el_1, val_1);
-          if(fig_2_value !== val_2) this.animateFigure($el_2, val_2);
-      }
-      else {
-  
-          // If we are under 10, replace first figure with 0
-          if(fig_1_value !== '0') this.animateFigure($el_1, 0);
-          if(fig_2_value !== val_1) this.animateFigure($el_2, val_1);
-      }    
-    }
-  };
-  
-  // Let's go !
-  Countdown.init();
+(function($){
+	
+	// Number of seconds in every time division
+	var days	= 24*60*60,
+		hours	= 60*60,
+		minutes	= 60;
+	
+	// Creating the plugin
+	$.fn.countdown = function(prop){
+		
+		var options = $.extend({
+			callback	: function(){},
+			timestamp	: 0
+		},prop);
+		
+		var left, d, h, m, s, positions;
+
+		// Initialize the plugin
+		init(this, options);
+		
+		positions = this.find('.position');
+		
+		(function tick(){
+			
+			// Time left
+			left = Math.floor((options.timestamp - (new Date())) / 1000);
+			
+			if(left < 0){
+				left = 0;
+			}
+			
+			// Number of days left
+			d = Math.floor(left / days);
+			updateDuo(0, 1, d);
+			left -= d*days;
+			
+			// Number of hours left
+			h = Math.floor(left / hours);
+			updateDuo(2, 3, h);
+			left -= h*hours;
+			
+			// Number of minutes left
+			m = Math.floor(left / minutes);
+			updateDuo(4, 5, m);
+			left -= m*minutes;
+			
+			// Number of seconds left
+			s = left;
+			updateDuo(6, 7, s);
+			
+			// Calling an optional user supplied callback
+			options.callback(d, h, m, s);
+			
+			// Scheduling another call of this function in 1s
+			setTimeout(tick, 1000);
+		})();
+		
+		// This function updates two digit positions at once
+		function updateDuo(minor,major,value){
+			switchDigit(positions.eq(minor),Math.floor(value/10)%10);
+			switchDigit(positions.eq(major),value%10);
+		}
+		
+		return this;
+	};
+
+
+	function init(elem, options){
+		elem.addClass('countdownHolder');
+
+		// Creating the markup inside the container
+		$.each(['Days','Hours','Minutes','Seconds'],function(i){
+			$('<span class="count'+this+'">').html(
+				'<span class="position">\
+					<span class="digit static">0</span>\
+				</span>\
+				<span class="position">\
+					<span class="digit static">0</span>\
+				</span>'
+			).appendTo(elem);
+			
+			if(this!="Seconds"){
+				elem.append('<span class="countDiv countDiv'+i+'"></span>');
+			}
+		});
+
+	}
+
+	// Creates an animated transition between the two numbers
+	function switchDigit(position,number){
+		
+		var digit = position.find('.digit')
+		
+		if(digit.is(':animated')){
+			return false;
+		}
+		
+		if(position.data('digit') == number){
+			// We are already showing this number
+			return false;
+		}
+		
+		position.data('digit', number);
+		
+		var replacement = $('<span>',{
+			'class':'digit',
+			css:{
+				top:'-2.1em',
+				opacity:0
+			},
+			html:number
+		});
+		
+		// The .static class is added when the animation
+		// completes. This makes it run smoother.
+		
+		digit
+			.before(replacement)
+			.removeClass('static')
+			.animate({top:'2.5em',opacity:0},'fast',function(){
+				digit.remove();
+			})
+
+		replacement
+			.delay(100)
+			.animate({top:0,opacity:1},'fast',function(){
+				replacement.addClass('static');
+			});
+	}
+})(jQuery);
