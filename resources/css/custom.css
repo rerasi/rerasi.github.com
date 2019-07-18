@@ -1,65 +1,53 @@
 /* ========================================= 
                 DEFAULT VALUES:
-                Font Family                     : Aquatico, Sansation, perfograma
-                Primary Color                   : #FFFFFF       (Text)
+                Font Family                     : Sansation, Sansation Bold, Sansation Light, Sansation Black
+                Primary Color                   : #FFF3CC       (Buttons)
                 Primary Text Color              : #4a4a4a       (Text Color)
 ============================================*/
-
 /* ==========================================
                     VARIABLE
 ============================================= */
-
 :root {
   --white-color: #fff;
   --primary-color: #fff3cc;
   --primary-text-color: #4a4a4a;
 }
-
 /* ==========================================
                     FONTS
 ============================================= */
-
 @font-face {
   font-family: "Aquatico";
   src: url(../../vendors/fonts/Aquatico-Regular.otf);
 }
-
 @font-face {
   font-family: "perfograma";
   src: url(../../vendors/fonts/perfograma/Perfograma-Regular.ttf);
 }
-
 @font-face {
   font-family: "Sansation";
   src: url(../../vendors/fonts/sansation/Sansation_Regular.ttf);
 }
-
 @font-face {
   font-family: "Sansation Bold";
   src: url(../../vendors/fonts/sansation/Sansation_Bold.ttf);
 }
-
 @font-face {
   font-family: "Sansation Light";
   src: url(../../vendors/fonts/sansation/Sansation_Light.ttf);
 }
-
 @font-face {
   font-family: "Sansation Light";
   src: url(../../vendors/fonts/sansation/Sansation_Italic.ttf);
 }
-
 /* ==========================================
                 GENERAL CSS 
 ============================================= */
-
 *, *::after, *::before {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: inherit;
   box-sizing: inherit;
 }
-
 html {
   /*  rem root default font size is: 16px
         we can use: 10px becasue it's easy to convert px to rem 
@@ -68,6 +56,18 @@ html {
     */
   font-size: 62.5%;
   scroll-behavior: smooth;
+
+  background: url(/resources/img/image/sp.jpg) no-repeat center center fixed; 
+  /* background: url(/resources/img/image/code4.jpeg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px); */
 }
 
 body {
@@ -78,7 +78,7 @@ body {
   font-size: 1.6rem;
   line-height: 150%;
   color: var(--primary-text-color);
-  
+
 }
 
 body:before{
@@ -104,45 +104,37 @@ body:before{
   background: var(--primary-color);
   color: var(--primary-text-color);
 }
-
 ::selection {
   background: var(--primary-color);
   color: var(--primary-text-color);
 }
-
 h1, h2, h3, h4, h5, h6, p {
   margin: 0;
   padding: 0;
 }
-
 .btn:focus, .btn:active {
   outline: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
-
 .form-control:focus {
   border: 1px solid #979797;
   outline: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
-
 input[type="text"]:focus {
   color: var(--primary-text-color);
   font-family: "sansation";
 }
-
 /* ==========================================
                 REUSABLE CLASS
 ============================================= */
-
 .text_center{
   text-align: center;
   left: 0;
   line-height: 100px;
 }
-
 .center_box{
   text-align: center;
   left: 0;
@@ -151,6 +143,17 @@ input[type="text"]:focus {
   position: absolute;
   top: 35%;
   width: 100%;
+}
+/* ==========================================
+                TIMER CLASS
+============================================= */
+#timer{
+  font-family: "perfograma";
+  text-align: center;
+  font-size: 60px;
+  color: var(--white-color);
+  margin-bottom: 15rem;
+  margin-bottom: 8rem;
 }
 
 .social{
@@ -190,14 +193,11 @@ input[type="text"]:focus {
 /* ==========================================
                 IMAGE CLASS
 ============================================= */
-
 .welcome{
   font-size: 10rem;
   font-family: "Aquatico";
   color: var(--white-color);
-
 }
-
 .wc_text{
   font-size: 1.4rem;
   letter-spacing: 2px;
@@ -285,7 +285,7 @@ ul.social-icons {
   /* background-color: #322f30; */
 }
 .fa-dribbble:hover {
-  background-color: #e64a41;
+    background-color: #e64a41;
 }
 .fa-linkedin {
   padding:10px 14px;
@@ -298,6 +298,7 @@ ul.social-icons {
   padding:10px 9px;
   /* background-color: #322f30; */
 }
+
 .fa-behance:hover {
-  background-color: #00aced;
+    background-color: #00aced;
 }
