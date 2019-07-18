@@ -255,11 +255,11 @@ ul.social-icons {
 .fa-instagram:hover {
     background-color: #eb8231;
 }
-.fa-youtube {
+.fa-dribbble {
     padding:10px 14px;
     /* background-color: #322f30; */
 }
-.fa-youtube:hover {
+.fa-dribbble:hover {
     background-color: #e64a41;
 }
 .fa-linkedin {
@@ -269,10 +269,10 @@ ul.social-icons {
 .fa-linkedin:hover {
     background-color: #0073a4;
 }
-.fa-google-plus {
+.fa-behance {
     padding:10px 9px;
     /* background-color: #322f30; */
 }
-.fa-google-plus:hover {
-    background-color: #e25714;
+.fa-behance:hover {
+    background-color: #00aced;
 }
