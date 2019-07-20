@@ -17,37 +17,39 @@
 ============================================= */
 @font-face {
   font-family: "Aquatico";
-  src: url(../../vendors/fonts/Aquatico-Regular.otf);
+  src: url(/resources/fonts/Aquatico-Regular.otf);
 }
 @font-face {
   font-family: "perfograma";
-  src: url(../../vendors/fonts/perfograma/Perfograma-Regular.ttf);
+  src: url(/resources/fonts/perfograma/Perfograma-Regular.ttf);
 }
 @font-face {
   font-family: "Sansation";
-  src: url(../../vendors/fonts/sansation/Sansation_Regular.ttf);
+  src: url(/resources/fonts/sansation/Sansation_Regular.ttf);
 }
 @font-face {
   font-family: "Sansation Bold";
-  src: url(../../vendors/fonts/sansation/Sansation_Bold.ttf);
+  src: url(/resources/fonts/sansation/Sansation_Bold.ttf);
 }
 @font-face {
   font-family: "Sansation Light";
-  src: url(../../vendors/fonts/sansation/Sansation_Light.ttf);
+  src: url(/resources/fonts/sansation/Sansation_Light.ttf);
 }
 @font-face {
   font-family: "Sansation Light";
-  src: url(../../vendors/fonts/sansation/Sansation_Italic.ttf);
+  src: url(/resources/fonts/sansation/Sansation_Italic.ttf);
 }
 /* ==========================================
                 GENERAL CSS 
 ============================================= */
+
 *, *::after, *::before {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: inherit;
   box-sizing: inherit;
 }
+
 html {
   /*  rem root default font size is: 16px
         we can use: 10px becasue it's easy to convert px to rem 
@@ -56,18 +58,6 @@ html {
     */
   font-size: 62.5%;
   scroll-behavior: smooth;
-
-  background: url(/resources/img/image/sp.jpg) no-repeat center center fixed; 
-  /* background: url(/resources/img/image/code4.jpeg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  filter: blur(5px);
-  -webkit-filter: blur(5px);
-  -moz-filter: blur(5px);
-  -o-filter: blur(5px);
-  -ms-filter: blur(5px); */
 }
 
 body {
@@ -86,7 +76,7 @@ body:before{
   position: fixed;
   width: 100vw;
   height: 100vh;
-  background-image: url("/resources/img/image/bg_img.jpg");
+  background-image: url("/resources/img/image/bg_img.png");
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -144,6 +134,16 @@ input[type="text"]:focus {
   top: 35%;
   width: 100%;
 }
+
+.social{
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition: .5s;
+}
+
+
 /* ==========================================
                 TIMER CLASS
 ============================================= */
@@ -154,14 +154,6 @@ input[type="text"]:focus {
   color: var(--white-color);
   margin-bottom: 15rem;
   margin-bottom: 8rem;
-}
-
-.social{
-  -o-transition:.5s;
-  -ms-transition:.5s;
-  -moz-transition:.5s;
-  -webkit-transition:.5s;
-  transition: .5s;
 }
 
 
@@ -185,9 +177,6 @@ input[type="text"]:focus {
                 SOCIAL MEDIA CLASS
 ============================================= */
 
-@import url(https://fonts.googleapis.com/css?family=Lato);
-@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css);
-
 a {
     text-decoration: none;
     color: #fff;
@@ -196,12 +185,7 @@ p > a:hover{
     color: #d9d9d9;
     text-decoration:  underline;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1,h2,h3,h4,h5,h6 {
     margin:  1% 0 1% 0;
 }
 ._12 {
@@ -214,11 +198,7 @@ ul {
     padding:0;
     list-style: none;
 }
-.footer-social-icons {
-    width: 350px;
-    display:block;
-    margin: 0 auto;
-}
+
 .social-icon {
     color: #fff;
 }
@@ -236,42 +216,36 @@ ul.social-icons {
 }
 .fa-facebook {
     padding:10px 14px;
-    /* background-color: #322f30; */
 }
 .fa-facebook:hover {
     background-color: #3d5b99;
 }
 .fa-twitter {
     padding:10px 12px;
-    /* background-color: #322f30; */
 }
 .fa-twitter:hover {
     background-color: #00aced;
 }
 .fa-instagram {
     padding:10px 14px;
-    /* background-color: #322f30; */
 }
 .fa-instagram:hover {
     background-color: #eb8231;
 }
 .fa-dribbble {
     padding:10px 14px;
-    /* background-color: #322f30; */
 }
 .fa-dribbble:hover {
     background-color: #e64a41;
 }
 .fa-linkedin {
     padding:10px 14px;
-    /* background-color: #322f30; */
 }
 .fa-linkedin:hover {
     background-color: #0073a4;
 }
 .fa-behance {
     padding:10px 9px;
-    /* background-color: #322f30; */
 }
 .fa-behance:hover {
     background-color: #00aced;
